@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punktzahl Auswertung</title>
+</head>
+<body>
+    <label for="punktzahl">Punktzahl eingeben:</label>
+    <input type="number" id="punktzahlInput">
+    <button onclick="bewertePunktzahl()">Auswerten</button>
+
+    <script>
+        function bewertePunktzahl() {
+            var punktzahl = parseInt(document.getElementById("punktzahlInput").value);
+            var ergebnisText = "";
+
+            if (!isNaN(punktzahl)) {
+                if (punktzahl > 90) {
+                    ergebnisText = "sehr gut";
+                } else if (punktzahl >= 80 && punktzahl <= 90) {
+                    ergebnisText = "gut";
+                } else if (punktzahl >= 70 && punktzahl < 80) {
+                    ergebnisText = "befriedigend";
+                } else if (punktzahl >= 60 && punktzahl < 70) {
+                    ergebnisText = "ausreichend";
+                } else {
+                    ergebnisText = "nicht bestanden";
+                }
+            } else {
+                ergebnisText = "Bitte geben Sie eine gültige Punktzahl ein.";
+            }
+
+            document.getElementById("ergebnis").textContent = ergebnisText;
+        }
+    </script>
+    
+    <p id="ergebnis"></p>
+</body>
+</html>
+

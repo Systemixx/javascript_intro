@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahrpreis</title>
+</head>
+<body>
+    <label for="alterInput">Alter eingeben:</label>
+    <input type="number" id="alterInput">
+    <button onclick="bewerteAlter()">Auswerten</button>
+    <p id="ergebnis"></p>
+
+    <script>
+        function bestimmeFahrpreis(alter) {
+            if (alter < 6) {
+                return "Die Fahrt ist kostenlos.";
+            } else if (alter >= 6 && alter <= 17) {
+                return "Kinderpreis.";
+            } else if (alter >= 18 && alter <= 66) {
+                return "Vollpreis.";
+            } else {
+                return "Seniorenpreis.";
+            }
+        }
+
+        function bewerteAlter() {
+            var alter = parseInt(document.getElementById("alterInput").value);
+            var ergebnisText = "";
+
+            if (isNaN(alter)) {
+                ergebnisText = "Bitte geben Sie ein Alter ein.";
+            } else {
+                ergebnisText = bestimmeFahrpreis(alter);
+            }
+
+            document.getElementById("ergebnis").textContent = "Ergebnis: " + ergebnisText;
+        }
+    </script>
+</body>
+</html>
