@@ -11,3 +11,4 @@ function bewertePunktzahl(punktzahl) {
         console.log("nicht bestanden");
     }
 }
+
