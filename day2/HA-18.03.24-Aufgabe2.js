@@ -9,4 +9,3 @@ function bestimmeFahrpreis(alter) {
         return "Seniorenpreis.";
     }
 }
-
