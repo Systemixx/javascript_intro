@@ -1,88 +1,31 @@
-console.log('Hallo Welt')
+// das Ausrufezeichen weist Typescript an, dass wir
+// uns sicher sind, dass es sich hier nicht um NULL
+// handelt
 
-const trainer: string = 'Lucas'
+// mittels 'as' können wir Typescript versichern,
+// dass es sich um einen bestimmten Typen handeln wird
 
-// ohne :string[] hätten wir eine Liste, die wir
-// niemals befüllen könnten
-let trainerListe: string[] = ['Shamila']
+const farbenInput
+  = document.getElementById('farbe')! as HTMLInputElement
 
-// console.log(trainerListe)
+// console.log(farbenInput.value)
 
-// Elemnt an Array HINTEN anhängen
-trainerListe.push('Lucas')
+// Wenn ich auf den Knopf klicke, dann soll in der Konsole
+// der Wert des TextInputs ausgegeben werden
 
-// console.log(trainerListe)
+const form
+  = document.getElementById('form')! as HTMLFormElement
 
-// Element an Array VORNE anhängen
-trainerListe.unshift('Galina')
+const form1
+  = document.querySelector('form')! as HTMLFormElement
+// wenn wir auf den Knopf drücken, wird ein submit-Event
+// ausgelöst. Wir hören, ob ein solches Event ausgelöst wird.
+// Wenn das Event ausgelöst wird, dann lesen wir den Wert
+// aus der Eingabe aus und geben sie aus.
 
-console.log(trainerListe)
-
-trainerListe.push('Benni')
-// trainerListe.push('1')
-
-// Wir können keine Zahlen anfügen
-// trainerListe.push(1)
-
-console.log(trainerListe)
-
-let letzteElement = trainerListe.pop()
-let ersteElement = trainerListe.shift()
-
-console.log(ersteElement, letzteElement)
-console.log(trainerListe)
-
-// console.log('tsc -w app.ts')
-
-// das Pipe-Zeichen "|" sagt, dass wir Daten vom Typ
-// number und string
-
-let meineVariable: number | string = 50 // oder 'fünzig'
-meineVariable = 'fünfzig'
-// meineVariable = false
-
-// entweder ist es ein array von zahlen (number[]) ODER
-// es ist eine array von strings (string[])
-let meinArray1: number[] | string[] = []
-
-// in dem array können wir numbers und strings
-// gleichzeitig speichern
-let meinArray2: (number | string)[] = []
-
-meinArray1 = [12, 50, 80/*, 'Asadul'*/] // Fehler bei Asadul
-meinArray1 = ['Asadul', 'Lucas' /*, 20*/] //Fehler bei 20
-meinArray2 = [12, 50, 80, 'Asadul', 'Lucas', 80]
-
-// wir können uns einen Datentyp auch selber erstellen
-// Damit können wir verlangen, dass Daten einen
-// bestimmten Aufbau haben
-
-type Auto = {
-  typ: string,
-  hersteller: string,
-  preis: number,
-  besitzer: string
-}
-
-let autoLyne: Auto = {
-  typ: 'Model S',
-  hersteller: 'Tesla',
-  preis: 45000,
-  besitzer: 'Lyne'
-}
-
-let autoGülcan: Auto = {
-  typ: 'Mustang',
-  hersteller: 'Ford',
-  preis: 65000,
-  besitzer: 'Gülcan'
-}
-
-let autoMarc: Auto = {
-  typ: 'Scooter Mi 4',
-  hersteller: 'xiaomi',
-  preis: 449,
-  besitzer: 'Marc'
-}
-
-let autoArray: Auto[] = []
+form.addEventListener('submit', (e) => {
+  // preventDefault verhindert das automatische
+  // neuladen der kompletten Seite
+  e.preventDefault()
+  console.log(farbenInput.value)
+})

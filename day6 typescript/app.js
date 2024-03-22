@@ -1,55 +1,21 @@
-console.log('Hallo Welt');
-var trainer = 'Lucas';
-// ohne :string[] hätten wir eine Liste, die wir
-// niemals befüllen könnten
-var trainerListe = ['Shamila'];
-// console.log(trainerListe)
-// Elemnt an Array HINTEN anhängen
-trainerListe.push('Lucas');
-// console.log(trainerListe)
-// Element an Array VORNE anhängen
-trainerListe.unshift('Galina');
-console.log(trainerListe);
-trainerListe.push('Benni');
-// trainerListe.push('1')
-// Wir können keine Zahlen anfügen
-// trainerListe.push(1)
-console.log(trainerListe);
-var letzteElement = trainerListe.pop();
-var ersteElement = trainerListe.shift();
-console.log(ersteElement, letzteElement);
-console.log(trainerListe);
-// console.log('tsc -w app.ts')
-// das Pipe-Zeichen "|" sagt, dass wir Daten vom Typ
-// number und string
-var meineVariable = 50; // oder 'fünzig'
-meineVariable = 'fünfzig';
-// meineVariable = false
-// entweder ist es ein array von zahlen (number[]) ODER
-// es ist eine array von strings (string[])
-var meinArray1 = [];
-// in dem array können wir numbers und strings
-// gleichzeitig speichern
-var meinArray2 = [];
-meinArray1 = [12, 50, 80 /*, 'Asadul'*/]; // Fehler bei Asadul
-meinArray1 = ['Asadul', 'Lucas' /*, 20*/]; //Fehler bei 20
-meinArray2 = [12, 50, 80, 'Asadul', 'Lucas', 80];
-var autoLyne = {
-    typ: 'Model S',
-    hersteller: 'Tesla',
-    preis: 45000,
-    besitzer: 'Lyne'
-};
-var autoGülcan = {
-    typ: 'Mustang',
-    hersteller: 'Ford',
-    preis: 65000,
-    besitzer: 'Gülcan'
-};
-var autoMarc = {
-    typ: 'Scooter Mi 4',
-    hersteller: 'xiaomi',
-    preis: 449,
-    besitzer: 'Marc'
-};
-var autoArray = [];
+// das Ausrufezeichen weist Typescript an, dass wir
+// uns sicher sind, dass es sich hier nicht um NULL
+// handelt
+// mittels 'as' können wir Typescript versichern,
+// dass es sich um einen bestimmten Typen handeln wird
+var farbenInput = document.getElementById('farbe');
+// console.log(farbenInput.value)
+// Wenn ich auf den Knopf klicke, dann soll in der Konsole
+// der Wert des TextInputs ausgegeben werden
+var form = document.getElementById('form');
+var form1 = document.querySelector('form');
+// wenn wir auf den Knopf drücken, wird ein submit-Event
+// ausgelöst. Wir hören, ob ein solches Event ausgelöst wird.
+// Wenn das Event ausgelöst wird, dann lesen wir den Wert
+// aus der Eingabe aus und geben sie aus.
+form.addEventListener('submit', function (e) {
+    // preventDefault verhindert das automatische
+    // neuladen der kompletten Seite
+    e.preventDefault();
+    console.log(farbenInput.value);
+});
