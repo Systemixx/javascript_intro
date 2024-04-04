@@ -37,3 +37,22 @@ form.addEventListener('submit', function (e) {
     });
     console.log(angewähltesObst);
 });
+var farbenInput = document.getElementById('farbe');
+var form = document.getElementById('form');
+var groesse = document.getElementById('groesse');
+var obst = document.getElementsByName('obst');
+var ergebnis = document.getElementById('ergebnis');
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ausgewaehlteObstsorten = [];
+    var anzahlObstsorten = 0;
+    // Checkt Obstsorten welche ausgewählt sind
+    obst.forEach(function (aktuellesObst) {
+        if (aktuellesObst.checked) {
+            ausgewaehlteObstsorten.push(aktuellesObst.value);
+            anzahlObstsorten++;
+        }
+    });
+    // Gibt das Ergebnis aus
+    ergebnis.innerHTML = "\n    Anzahl der Obstsorten: ".concat(anzahlObstsorten, " <br>\n    Gr\u00F6\u00DFe: ").concat(groesse.value, " <br>\n    Farbe: ").concat(farbenInput.value, " <br>\n    Obstsorten: ").concat(ausgewaehlteObstsorten.join(', '));
+});

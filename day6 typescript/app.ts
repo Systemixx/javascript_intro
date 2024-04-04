@@ -62,3 +62,31 @@ type Obstschüssel = {
   farbe: string,
   sorten: string[]
 }
+
+const farbenInput = document.getElementById('farbe')! as HTMLInputElement;
+const form = document.getElementById('form')! as HTMLFormElement;
+const groesse = document.getElementById('groesse') as HTMLSelectElement;
+const obst = document.getElementsByName('obst') as NodeListOf<HTMLInputElement>;
+const ergebnis = document.getElementById('ergebnis') as HTMLParagraphElement;
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const ausgewaehlteObstsorten: string[] = [];
+  let anzahlObstsorten = 0;
+
+  // Checkt Obstsorten welche ausgewählt sind
+  obst.forEach(aktuellesObst => {
+    if (aktuellesObst.checked) {
+      ausgewaehlteObstsorten.push(aktuellesObst.value);
+      anzahlObstsorten++;
+    }
+  });
+
+  // Gibt das Ergebnis aus
+  ergebnis.innerHTML = `
+    Anzahl der Obstsorten: ${anzahlObstsorten} <br>
+    Größe: ${groesse.value} <br>
+    Farbe: ${farbenInput.value} <br>
+    Obstsorten: ${ausgewaehlteObstsorten.join(', ')}`;
+});
